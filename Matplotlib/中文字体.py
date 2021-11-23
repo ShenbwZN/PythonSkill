@@ -1,13 +1,19 @@
 import matplotlib.pyplot as plt
+import numpy as np
 import matplotlib
-print(matplotlib.matplotlib_fname())
-plt.plot([1, 2, 3, 4, 5], [5, 4, 3, 2, 1], '-og')
-plt.text(1, 5, '1: 查询 matplotlibrc 文件路径')
-plt.text(2, 4, '2: 通过\nmatplotlib.matplotlib_fname()\n查询路径')
-plt.text(3, 3, '3: 查找\n#font.family:和\n#font.sans-serif:\n开头的这两行')
-plt.text(4, 2, '4: 去掉这两行的 # 号，\n在font.sans-serif:后添加\nSimSun(宋),SimHei(黑)')
-plt.text(5, 1, '5: 找axes.unicode_minus:True。\n去掉注释符号（#）,并将True改为False。')
-plt.title('显示中文的方法！')
-plt.xlabel('中文')
-plt.ylabel('字体')
-plt.show()
+
+if __name__ == "__main__":
+    # 1-通过 matplotlib.matplotlib_fname() 查询 matplotlibrc 的 位置
+    print(matplotlib.matplotlib_fname())
+
+    # 2-修改字体，找到：#font.family与#font.sans-serif开头两行，去掉前面的#注释
+    # 在第二个添加中文字体SimSun(宋),SimHei(黑)
+
+    # 3-修改负号，找到axes.unicode_minus:True，去掉注释，改成False
+
+    # 测试图中的中文显示
+    plt.plot(np.arange(-4, 4, 0.1), np.sin(np.arange(-4, 4, 0.1)))
+    plt.title('测试图中的中文')
+    plt.xlabel('X轴')
+    plt.ylabel('Y轴')
+    plt.show()
